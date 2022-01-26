@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="col-5 h1">New bill</div>
+
+
+</div>
+<form id="report_bill" action="{{url_for('report_bill')}}" method="POST">
+    <div class="row justify-content-start">
+        <div class="col-1 col-form-label"><label for="type_b">Type</label></div>
+        <div class="col-4">
+            <input type="text" id="type_b" name="type_b" value="" placeholder="For example: Electricity/Internet/Phone/Gas " class="form-control"><br>
+
+        </div>
+    <div class="row justify-content-start">
+        <div class="col-1 col-form-label"><label for="value_b">Value</label></div>
+        <div class="col-2">
+            <input type="text" id="value_b" name="value_b" value="0" class="form-control"><br>
+
+        </div>
+
+    <div class="row justify-content-start">
+        <div class="col-1 col-form-label"><label for="year_b">Year</label></div>
+    <div class="col-1 dropdown-menu-right">
+        <select id="year_b" name="year_b" class="form-select" >
+            {%for n in range (2021,2024)%}
+            <option value="{{n}}">{{n}}</option>
+            {%endfor%}
+        </select><br>
+    </div>
+    </div>
+
+    <div class="row justify-content-start">
+        <div class="col-1 col-form-label"><label for="month_b">Month</label></div>
+    <div class="col-1">
+        <select id="month_b" name="month_b" class="form-select">
+            {%for m in range (1,13)%}
+            <option value="{{m}}">{{m}}</option>
+            {%endfor%}
+        </select><br>
+    </div>
+    </div>
+
+    <div class="row justify-content-start">
+<div class="col-1 col-form-label"><label for="description_b">Description</label></div>
+    <div class="col-1">
+
+        <select id="year_b" name="year_b" class="form-select">
+     {%for d in desc%}
+    <option value="{{d}}" selected={{d}}>{{d}}</option>
+      {%endfor%}
+  </select>
+  <br><br>
+
+            <div class="row justify-content-start">
+        <div class="col-1"></div>
+        <div class="col-1"><input type="submit" value="Send" class="btn btn-dark"></div>
+
+    </div>
+
+
+
+
+</form>
+
+{% endblock %}
